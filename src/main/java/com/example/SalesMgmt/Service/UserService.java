@@ -10,9 +10,9 @@ public interface UserService {
 
     UserDTO addUser(UserDTO user);
 
-    List<UserDTO> listAllDetails();
+    List<User> listAllDetails();
 
-    UserDTO getProductDetailsByID(int id);
+    User getProductDetailsByID(int id);
 
     UserDTO updateProductDetails(UserDTO product);
 

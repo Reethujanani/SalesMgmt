@@ -11,6 +11,14 @@ public interface OrderService {
 
     OrderDTO addOrder(OrderDTO order);
 
+    List<Order> listAllDetails();
+
+    Order getProductDetailsByID(int id);
+
+    List<Order> saveAllDetails(List<Order> product);
+
+    String deleteDetailsById(int id);
+
   /*  List<OrderDTO> saveAllDetails(List<OrderDTO> product);
 
     List<OrderDTO> listAllDetails();

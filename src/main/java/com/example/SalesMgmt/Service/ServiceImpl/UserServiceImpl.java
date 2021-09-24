@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -27,6 +28,7 @@ public class UserServiceImpl implements UserService {
         user1.setIs_deleted(user.getIs_deleted());
         try {
             userRepository.save(user1);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,14 +38,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public List<UserDTO> listAllDetails() {
+    public List<User> listAllDetails() {
 
-        return null;
-    }
-
-    @Override
-    public UserDTO getProductDetailsByID(int id) {
-        return null;
+        return userRepository.findAll();
     }
 
     @Override
@@ -60,9 +57,13 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user1);
         return null;
     }
-
-    @Override
+    public User getProductDetailsByID(int userid) {
+        Optional<User> user = userRepository.findById(userid);
+        return user.get();
+    }
+        @Override
     public String deleteDetailsById(int id) {
-        return null;
+        userRepository.deleteById(id);
+        return "successfully deleted";
     }
 }

@@ -3,6 +3,7 @@ package com.example.SalesMgmt.Service.ServiceImpl;
 import com.example.SalesMgmt.DTO.Spare_partsDTO;
 import com.example.SalesMgmt.Entity.Spare_parts;
 import com.example.SalesMgmt.Entity.Spare_parts_type;
+import com.example.SalesMgmt.Entity.User;
 import com.example.SalesMgmt.Repository.Spare_partsRepository;
 import com.example.SalesMgmt.Repository.Spare_parts_typeRepository;
 import com.example.SalesMgmt.Service.Spare_parts_Service;
@@ -42,16 +43,18 @@ public class Spare_parts_ServiceImpl implements Spare_parts_Service {
         return spare_parts;
     }
 
+    public Spare_parts getProductDetailsByID(int id) {
+        Optional<Spare_parts> user = spare_partsrepository.findById(id);
+        return user.get();
+    }
+
     @Override
-    public List<Spare_partsDTO> listAllDetails() {
-        return null;
+    public List<Spare_parts> listAllDetails() {
+
+        return spare_partsrepository.findAll();
     }
 
 
-    @Override
-    public Spare_partsDTO getProductDetailsByID(int id) {
-        return null;
-    }
 
     @Override
     public Spare_partsDTO updateProductDetails(Spare_partsDTO spare_parts) {
@@ -60,6 +63,7 @@ public class Spare_parts_ServiceImpl implements Spare_parts_Service {
 
     @Override
     public String deleteDetailsById(int id) {
-        return null;
+         spare_partsrepository.deleteById(id);
+         return "Successfully deleted";
     }
 }
