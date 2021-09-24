@@ -42,12 +42,38 @@ public class OrderServiceImpl implements OrderService {
         order1.setIs_deleted(order.getIs_deleted());
         try {
             orderRepository.save(order1);
-            return order;
-        } catch (Exception e) {
+
+            return order;}
+        catch (Exception e)
+
+        {
             e.getMessage();
 
         }
         return null;
+
+
+    }
+
+    @Override
+    public List<Order> listAllDetails() {
+        return orderRepository.findAll();
+    }
+
+    @Override
+    public Order getProductDetailsByID(int id) {
+        return null;
+    }
+
+    @Override
+    public List<Order> saveAllDetails(List<Order> product) {
+        return null;
+    }
+
+    @Override
+    public String deleteDetailsById(int id) {
+        orderRepository.deleteById(id);
+        return "Success";
     }
 
  /*   @Override

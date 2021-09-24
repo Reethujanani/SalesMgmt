@@ -11,9 +11,9 @@ public interface  Spare_parts_Service {
 
     Spare_partsDTO addSpare_parts(Spare_partsDTO spare_parts);
 
-    List<Spare_partsDTO> listAllDetails();
+    List<Spare_parts> listAllDetails();
 
-    Spare_partsDTO getProductDetailsByID(int id);
+    Spare_parts getProductDetailsByID(int id);
 
     Spare_partsDTO updateProductDetails(Spare_partsDTO spare_parts);
 

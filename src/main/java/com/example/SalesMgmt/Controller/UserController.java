@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 
 public class UserController {
 
@@ -24,12 +24,12 @@ public class UserController {
     }
     //read method
     @GetMapping("/get")
-    public List<UserDTO> getAllDetails(){
+    public List<User> getAllDetails(){
         return UserService.listAllDetails();
     }
     //read method by ID
     @GetMapping("/getById/{id}")
-    public UserDTO getDetailsByID(@PathVariable int id){
+    public User getDetailsByID(@PathVariable int id){
 
         return UserService.getProductDetailsByID(id);
     }

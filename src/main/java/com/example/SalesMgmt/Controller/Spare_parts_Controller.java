@@ -1,6 +1,7 @@
 package com.example.SalesMgmt.Controller;
 
 import com.example.SalesMgmt.DTO.Spare_partsDTO;
+import com.example.SalesMgmt.Entity.Spare_parts;
 import com.example.SalesMgmt.Service.Spare_parts_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,12 +23,12 @@ public class Spare_parts_Controller{
 
     //read method
     @GetMapping("/get")
-    public List<Spare_partsDTO> getAllDetails(){
+    public List<Spare_parts> getAllDetails(){
         return spare_parts_Service.listAllDetails();
     }
     //read method by ID
     @GetMapping("/getById/{id}")
-    public Spare_partsDTO getDetailsByID(@PathVariable int id){
+    public Spare_parts getDetailsByID(@PathVariable int id){
 
         return spare_parts_Service.getProductDetailsByID(id);
     }

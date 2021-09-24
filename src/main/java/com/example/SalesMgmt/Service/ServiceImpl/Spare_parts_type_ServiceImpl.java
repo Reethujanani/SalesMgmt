@@ -33,7 +33,7 @@ public class Spare_parts_type_ServiceImpl implements Spare_parts_type_Service {
 
     @Override
     public List<Spare_parts_type> listAllDetails() {
-        return null;
+        return spare_parts_typeRepository.findAll();
     }
 
 
@@ -49,7 +49,8 @@ public class Spare_parts_type_ServiceImpl implements Spare_parts_type_Service {
 
     @Override
     public String deleteDetailsById(int id) {
-        return null;
+        spare_parts_typeRepository.deleteById(id);
+        return "Success";
     }
 
     @Override

@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/order")
 public class OrderController {
 
     @Autowired
     private OrderService orderService;
-    private Object Order;
 
     //Post Method
     @PostMapping("/post")
     public OrderDTO addOrder(@RequestBody OrderDTO order){
         return orderService.addOrder(order);
     }
-   /* @PostMapping("/createList")
+ @PostMapping("/createList")
     public List<Order> saveStudent(@RequestBody List<Order> product){
         return orderService.saveAllDetails(product);
     }
@@ -37,18 +37,18 @@ public class OrderController {
         return orderService.getProductDetailsByID(id);
     }
 
-    //update method
-    @PutMapping("/update")
+/*    @PutMapping("/update")
     public Order updateStudent(@RequestBody Order product) {
         return orderService.updateProductDetails(product);
-    }
+    }*/
 
 
-    //delete method+
+
     @DeleteMapping("/delete/{id}")
     public String deleteStudent(@PathVariable int id){
         return orderService.deleteDetailsById(id);
-    }*/
+    }
+
 }
 
 
